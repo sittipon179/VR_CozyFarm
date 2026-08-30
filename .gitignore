@@ -49,3 +49,28 @@ Packages/packages-lock.json.bak
 *.aab
 *.unitypackage
 *.app
+
+# ===== Third-party art/asset-store packs (re-downloadable, not authored by us) =====
+/Assets/AK STUDIO ART/
+/Assets/AK STUDIO ART.meta
+/Assets/CobraGamesAssets/
+/Assets/CobraGamesAssets.meta
+/Assets/Davidweber01/
+/Assets/Davidweber01.meta
+/Assets/Low-Poly Medieval Market/
+/Assets/Low-Poly Medieval Market.meta
+/Assets/LowPolyFarmLite/
+/Assets/LowPolyFarmLite.meta
+/Assets/Nicrom/
+/Assets/Nicrom.meta
+/Assets/Pandazole_Ultimate_Pack/
+/Assets/Pandazole_Ultimate_Pack.meta
+/Assets/PolyRonin/
+/Assets/PolyRonin.meta
+/Assets/RawWoodenFurnitureFree/
+/Assets/RawWoodenFurnitureFree.meta
+/Assets/SimpleNaturePack/
+/Assets/SimpleNaturePack.meta
+/Assets/StylizedFurniturePack/
+/Assets/StylizedFurniturePack.meta
+/_to_delete/
