@@ -1,12 +1,38 @@
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
+// VR conversion: this used to raycast from playerCamera on a mouse click. It now reacts to
+// an XRSimpleInteractable's selectEntered event, which fires the same way whether the player
+// pokes the bed up close or selects it at range with a ray interactor. Same gating logic as
+// before (UIStateManager / SleepManager), just triggered by XRI instead of Input.GetMouseButtonDown.
+[RequireComponent(typeof(XRSimpleInteractable))]
 public class BedInteractable : MonoBehaviour
 {
-    [Header("References")]
-    public Camera playerCamera;
-    public float interactDistance = 3f;
+    private XRSimpleInteractable _interactable;
 
-    void Update()
+    void Awake()
+    {
+        _interactable = GetComponent<XRSimpleInteractable>();
+    }
+
+    void OnEnable()
+    {
+        if (_interactable != null)
+        {
+            _interactable.selectEntered.AddListener(OnSelectEntered);
+        }
+    }
+
+    void OnDisable()
+    {
+        if (_interactable != null)
+        {
+            _interactable.selectEntered.RemoveListener(OnSelectEntered);
+        }
+    }
+
+    private void OnSelectEntered(SelectEnterEventArgs args)
     {
         if (UIStateManager.Instance != null && UIStateManager.Instance.IsAnyUIOpen)
         {
@@ -18,21 +44,6 @@ public class BedInteractable : MonoBehaviour
             return;
         }
 
-        if (playerCamera == null)
-        {
-            return;
-        }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
-            if (Physics.Raycast(ray, out RaycastHit hit, interactDistance))
-            {
-                if (hit.collider.gameObject == gameObject)
-                {
-                    SleepManager.Instance.TryToSleep();
-                }
-            }
-        }
+        SleepManager.Instance.TryToSleep();
     }
 }

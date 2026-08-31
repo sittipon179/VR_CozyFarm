@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlantData_Tomato
   m_EditorClassIdentifier: 
   seedType: 1
-  displayName: 
+  displayName: Tomato
   tier: 0
   wateringRule: 0
   strictWindowHour: 6
@@ -26,3 +26,11 @@ MonoBehaviour:
   seedBuyPrice: 60
   sellPricePerItem: 84
   reducedQualitySellMultiplier: 0.5
+  notes: 
+  icon: {fileID: 0}
+  growthStagePrefabs:
+  - {fileID: 2630425031254273193, guid: ff4399c5c516b6145b031f40e03b2334, type: 3}
+  - {fileID: 6651310731303358679, guid: 1392dbd2be3bbd04d8e5c57b904b42ae, type: 3}
+  - {fileID: 5054277889059016994, guid: f12845bb4d1709a499e97026b8068627, type: 3}
+  - {fileID: 9218926353566358502, guid: 98541326b56e6e14eb84d42aa2461bac, type: 3}
+  deadStagePrefab: {fileID: 0}

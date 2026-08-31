@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ced316094e2256f4ab1b65cc66c86397, type: 3}
+  m_Name: PlantData_Pumpkin
+  m_EditorClassIdentifier: 
+  seedType: 4
+  displayName: Pumpkin
+  tier: 1
+  wateringRule: 1
+  strictWindowHour: 6
+  strictWindowMinute: 0
+  strictWindowToleranceMinutes: 30
+  minHarvestDays: 7
+  maxHarvestDays: 10
+  thirstyToCriticalHours: 1.5
+  criticalToDeadHours: 0.5
+  seedBuyPrice: 25
+  sellPricePerItem: 40
+  reducedQualitySellMultiplier: 0.5
+  notes: 
+  icon: {fileID: 0}
+  growthStagePrefabs:
+  - {fileID: 2630425031254273193, guid: ff4399c5c516b6145b031f40e03b2334, type: 3}
+  - {fileID: 1000010824186820, guid: 30319199574ca3644bf3898bb5cac486, type: 3}
+  - {fileID: 1000012003911730, guid: 0adfa404918648e42a1fb073ef9010d3, type: 3}
+  deadStagePrefab: {fileID: 0}

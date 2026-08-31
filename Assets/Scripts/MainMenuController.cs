@@ -17,6 +17,8 @@ public class MainMenuController : MonoBehaviour
 
     [Header("Player Reference")]
     public FirstPersonController firstPersonController;
+    [Tooltip("VR conversion: the XR rig's 'Locomotion' GameObject (holds the move/turn/teleport providers). Disabled while the main menu is up so the player can't walk/teleport through the world before pressing Start, then re-enabled in OnStartGame -- mirrors what disabling firstPersonController already did for the old desktop player.")]
+    public GameObject vrLocomotion;
 
     void Start()
     {
@@ -32,6 +34,11 @@ public class MainMenuController : MonoBehaviour
         {
             firstPersonController.enabled = false;
         }
+        if (vrLocomotion != null)
+        {
+            vrLocomotion.SetActive(false);
+        }
+
 
         if (UIStateManager.Instance != null)
         {
@@ -47,6 +54,11 @@ public class MainMenuController : MonoBehaviour
         {
             firstPersonController.enabled = true;
         }
+        if (vrLocomotion != null)
+        {
+            vrLocomotion.SetActive(true);
+        }
+
 
         if (TimeManager.Instance != null)
         {

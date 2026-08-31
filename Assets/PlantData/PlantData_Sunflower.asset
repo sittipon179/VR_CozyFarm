@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ced316094e2256f4ab1b65cc66c86397, type: 3}
+  m_Name: PlantData_Sunflower
+  m_EditorClassIdentifier: 
+  seedType: 5
+  displayName: Sunflower
+  tier: 2
+  wateringRule: 2
+  strictWindowHour: 6
+  strictWindowMinute: 0
+  strictWindowToleranceMinutes: 30
+  minHarvestDays: 14
+  maxHarvestDays: 20
+  thirstyToCriticalHours: 1.5
+  criticalToDeadHours: 0.5
+  seedBuyPrice: 10
+  sellPricePerItem: 13
+  reducedQualitySellMultiplier: 0.5
+  notes: 
+  icon: {fileID: 0}
+  growthStagePrefabs:
+  - {fileID: 2630425031254273193, guid: ff4399c5c516b6145b031f40e03b2334, type: 3}
+  - {fileID: 7894121702400547446, guid: 0078b9131652b014992393af8523ccbc, type: 3}
+  - {fileID: 4029996152737623616, guid: 8f310ba589526d142839442e3eb756d0, type: 3}
+  - {fileID: 1889704791735354376, guid: cf67da592a170c44a84fb43b95f4d848, type: 3}
+  - {fileID: 1939220343108472327, guid: e7997aa72a2f37e48a05b60f2afb554a, type: 3}
+  deadStagePrefab: {fileID: 1528669740029799298, guid: 88d03ea1b6037fb4d90a14cd7a2c9893, type: 3}
+  growthStageYOffsets:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0.66
+  deadStageYOffset: 0

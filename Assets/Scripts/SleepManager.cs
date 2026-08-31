@@ -175,6 +175,19 @@ public class SleepManager : MonoBehaviour
             firstPersonController.enabled = false;
         }
 
+        // The clock keeps running in real time (at whatever speed TimeManager is currently set
+        // to) all the way through this fade -> black hold -> fade-back-in sequence unless we stop
+        // it here. SkipToTimeNextDay below sets the clock to exactly the target wake time, but if
+        // time is still ticking while the screen is black, that target immediately starts
+        // drifting forward again -- barely noticeable at the old slow time scale, but very
+        // noticeable now that days pass in seconds. Stopping here and restarting once the player
+        // is actually looking at the world again (UpdateFadingIn) keeps "sleep on time -> wake at
+        // 6:00" exact, no matter how long the fade animation itself takes in real seconds.
+        if (TimeManager.Instance != null)
+        {
+            TimeManager.Instance.StopTime();
+        }
+
         ScreenFadeController.Instance.SetFatigueWarning(0f);
         ScreenFadeController.Instance.FadeToBlack();
     }
@@ -206,6 +219,13 @@ public class SleepManager : MonoBehaviour
         if (ScreenFadeController.Instance.CurrentFadeAlpha <= 0.01f)
         {
             CurrentState = SleepState.Awake;
+
+            // Resume the clock now that the player can actually see (and act in) the world again
+            // -- see BeginFadingOut for why it was paused.
+            if (TimeManager.Instance != null)
+            {
+                TimeManager.Instance.StartTime();
+            }
 
             if (firstPersonController != null)
             {

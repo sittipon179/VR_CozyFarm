@@ -50,27 +50,84 @@ Packages/packages-lock.json.bak
 *.unitypackage
 *.app
 
+# Debug/test screenshots accumulated during development (not project content)
+/Assets/Screenshots/
+/Assets/Screenshots.meta
+
 # ===== Third-party art/asset-store packs (re-downloadable, not authored by us) =====
+# Only packs with ZERO usage in the shipped scene are excluded here.
+# Packs that ARE used (SimpleNaturePack, Low-Poly Medieval Market, Nicrom,
+# Pandazole_Ultimate_Pack, AssetHunts!, Cartoon_Farm_Crops, LightingManager_Assets,
+# Standard Assets, Gridness Studios) are committed in full so a collaborator can
+# clone and open the project immediately without missing dependencies.
 /Assets/AK STUDIO ART/
 /Assets/AK STUDIO ART.meta
-/Assets/CobraGamesAssets/
-/Assets/CobraGamesAssets.meta
 /Assets/Davidweber01/
 /Assets/Davidweber01.meta
-/Assets/Low-Poly Medieval Market/
-/Assets/Low-Poly Medieval Market.meta
 /Assets/LowPolyFarmLite/
 /Assets/LowPolyFarmLite.meta
-/Assets/Nicrom/
-/Assets/Nicrom.meta
-/Assets/Pandazole_Ultimate_Pack/
-/Assets/Pandazole_Ultimate_Pack.meta
 /Assets/PolyRonin/
 /Assets/PolyRonin.meta
 /Assets/RawWoodenFurnitureFree/
 /Assets/RawWoodenFurnitureFree.meta
-/Assets/SimpleNaturePack/
-/Assets/SimpleNaturePack.meta
 /Assets/StylizedFurniturePack/
 /Assets/StylizedFurniturePack.meta
+
+# CobraGamesAssets is 1.7GB total; only ~55MB across 21 files (used for the Bed,
+# the book prop, and a small table) is actually referenced by the scene. Only
+# those specific files/folders are committed; everything else in the pack
+# (including the rest of Stylized_Dungeon_Props_Pack, which alone is >1.6GB)
+# stays excluded.
+/Assets/CobraGamesAssets/*
+!/Assets/CobraGamesAssets/Stylized_Dungeon_Props_Pack/
+!/Assets/CobraGamesAssets/Stylized_Dungeon_Props_Pack.meta
+
+/Assets/CobraGamesAssets/Stylized_Dungeon_Props_Pack/*
+!/Assets/CobraGamesAssets/Stylized_Dungeon_Props_Pack/Materials/
+!/Assets/CobraGamesAssets/Stylized_Dungeon_Props_Pack/Materials.meta
+!/Assets/CobraGamesAssets/Stylized_Dungeon_Props_Pack/Models/
+!/Assets/CobraGamesAssets/Stylized_Dungeon_Props_Pack/Models.meta
+!/Assets/CobraGamesAssets/Stylized_Dungeon_Props_Pack/Prefabs/
+!/Assets/CobraGamesAssets/Stylized_Dungeon_Props_Pack/Prefabs.meta
+!/Assets/CobraGamesAssets/Stylized_Dungeon_Props_Pack/Textures/
+!/Assets/CobraGamesAssets/Stylized_Dungeon_Props_Pack/Textures.meta
+
+/Assets/CobraGamesAssets/Stylized_Dungeon_Props_Pack/Materials/*
+!/Assets/CobraGamesAssets/Stylized_Dungeon_Props_Pack/Materials/M_Book_Pages.mat
+!/Assets/CobraGamesAssets/Stylized_Dungeon_Props_Pack/Materials/M_Book_Pages.mat.meta
+!/Assets/CobraGamesAssets/Stylized_Dungeon_Props_Pack/Materials/M_Table_Small_Metal.mat
+!/Assets/CobraGamesAssets/Stylized_Dungeon_Props_Pack/Materials/M_Table_Small_Metal.mat.meta
+!/Assets/CobraGamesAssets/Stylized_Dungeon_Props_Pack/Materials/M_Book_Cover_Red.mat
+!/Assets/CobraGamesAssets/Stylized_Dungeon_Props_Pack/Materials/M_Book_Cover_Red.mat.meta
+!/Assets/CobraGamesAssets/Stylized_Dungeon_Props_Pack/Materials/M_Table_Small_Wood.mat
+!/Assets/CobraGamesAssets/Stylized_Dungeon_Props_Pack/Materials/M_Table_Small_Wood.mat.meta
+
+/Assets/CobraGamesAssets/Stylized_Dungeon_Props_Pack/Models/*
+!/Assets/CobraGamesAssets/Stylized_Dungeon_Props_Pack/Models/Book_low.fbx
+!/Assets/CobraGamesAssets/Stylized_Dungeon_Props_Pack/Models/Book_low.fbx.meta
+!/Assets/CobraGamesAssets/Stylized_Dungeon_Props_Pack/Models/Table_Small_low.fbx
+!/Assets/CobraGamesAssets/Stylized_Dungeon_Props_Pack/Models/Table_Small_low.fbx.meta
+!/Assets/CobraGamesAssets/Stylized_Dungeon_Props_Pack/Models/Bed_low.fbx
+!/Assets/CobraGamesAssets/Stylized_Dungeon_Props_Pack/Models/Bed_low.fbx.meta
+
+/Assets/CobraGamesAssets/Stylized_Dungeon_Props_Pack/Prefabs/*
+!/Assets/CobraGamesAssets/Stylized_Dungeon_Props_Pack/Prefabs/Props/
+!/Assets/CobraGamesAssets/Stylized_Dungeon_Props_Pack/Prefabs/Props.meta
+!/Assets/CobraGamesAssets/Stylized_Dungeon_Props_Pack/Prefabs/Furniture/
+!/Assets/CobraGamesAssets/Stylized_Dungeon_Props_Pack/Prefabs/Furniture.meta
+
+/Assets/CobraGamesAssets/Stylized_Dungeon_Props_Pack/Prefabs/Props/*
+!/Assets/CobraGamesAssets/Stylized_Dungeon_Props_Pack/Prefabs/Props/Book_Red.prefab
+!/Assets/CobraGamesAssets/Stylized_Dungeon_Props_Pack/Prefabs/Props/Book_Red.prefab.meta
+
+/Assets/CobraGamesAssets/Stylized_Dungeon_Props_Pack/Prefabs/Furniture/*
+!/Assets/CobraGamesAssets/Stylized_Dungeon_Props_Pack/Prefabs/Furniture/Table_Small.prefab
+!/Assets/CobraGamesAssets/Stylized_Dungeon_Props_Pack/Prefabs/Furniture/Table_Small.prefab.meta
+
+/Assets/CobraGamesAssets/Stylized_Dungeon_Props_Pack/Textures/*
+!/Assets/CobraGamesAssets/Stylized_Dungeon_Props_Pack/Textures/Unity Book Red Textures/
+!/Assets/CobraGamesAssets/Stylized_Dungeon_Props_Pack/Textures/Unity Book Red Textures.meta
+!/Assets/CobraGamesAssets/Stylized_Dungeon_Props_Pack/Textures/Unity Table Small Textures/
+!/Assets/CobraGamesAssets/Stylized_Dungeon_Props_Pack/Textures/Unity Table Small Textures.meta
+
 /_to_delete/

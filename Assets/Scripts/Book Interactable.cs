@@ -1,34 +1,67 @@
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
+// Pickup interaction for the physical book prop on the table in the house. Selecting it once
+// ""collects"" the encyclopedia: the physical prop disappears from the world, BookCollectionManager
+// marks it as owned (revealing the dedicated Book shortcut icon in the Inventory panel -- see
+// InventoryUIController), and the book opens once immediately as pickup confirmation. The book is
+// never a real inventory slot item, so after this the encyclopedia is only reachable from that
+// shortcut icon.
+[RequireComponent(typeof(XRSimpleInteractable))]
 public class BookInteractable : MonoBehaviour
 {
     [Header("References")]
     public BookUIController bookUI;
-    public Camera playerCamera;
-    public float interactDistance = 3f;
 
-    void Update()
+    private XRSimpleInteractable _interactable;
+    private bool _collected;
+
+    void Awake()
     {
+        _interactable = GetComponent<XRSimpleInteractable>();
+    }
+
+    void OnEnable()
+    {
+        if (_interactable != null)
+        {
+            _interactable.selectEntered.AddListener(OnSelectEntered);
+        }
+    }
+
+    void OnDisable()
+    {
+        if (_interactable != null)
+        {
+            _interactable.selectEntered.RemoveListener(OnSelectEntered);
+        }
+    }
+
+    private void OnSelectEntered(SelectEnterEventArgs args)
+    {
+        if (_collected)
+        {
+            return;
+        }
+
         if (UIStateManager.Instance != null && UIStateManager.Instance.IsAnyUIOpen)
         {
             return;
         }
 
-        if (playerCamera == null || bookUI == null)
+        _collected = true;
+
+        if (BookCollectionManager.Instance != null)
         {
-            return;
+            BookCollectionManager.Instance.CollectBook();
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (bookUI != null)
         {
-            Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
-            if (Physics.Raycast(ray, out RaycastHit hit, interactDistance))
-            {
-                if (hit.collider.gameObject == gameObject)
-                {
-                    bookUI.OpenBook();
-                }
-            }
+            bookUI.OpenBook();
         }
+
+        gameObject.SetActive(false);
     }
 }
